@@ -1,6 +1,6 @@
 (defproject cspbox-trading "0.1.0"
-  :description "FIXME: write description"
-  :url "http://example.com/FIXME"
+  :description "Part of cspbox trading system for build standalone daemon"
+  :url "https://github.com/mikewin/cspbox-trading"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.7.0"]
