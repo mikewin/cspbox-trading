@@ -2,6 +2,9 @@
 
 A Clojure library for autorun (cspbox) trading system.
 
+More information, please visit [our blog website]: http://autorun.coding.io/  (Chinese version)
+
+
 ## Usage
 
 LightTrade system will use it to build uberjar.

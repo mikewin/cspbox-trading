@@ -1,3 +1,8 @@
-# Introduction to autorun-trading
+# Introduction to cspbox-trading
 
-TODO: write [great documentation](http://jacobian.org/writing/what-to-write/)
+  This lib is support the codes which generate from autorun system.
+
+  Please, visit [blog website]: http://autorun.coding.io/
+
+  (Blog is Chinese version)
+
