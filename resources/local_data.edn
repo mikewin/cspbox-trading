@@ -1,0 +1,5 @@
+{:history-data-directory "e:/stock/stock/stockdata/"
+ :history-min-directory  "e:/work/autorun/tools/min-data/data/"
+ :file-name-prefix   "h_kline_"
+ :file-postfix ".min"
+ :data-format {:date 0 :open 1, :high 2, :close 3, :low 4, :volume 5}}

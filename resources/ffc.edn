@@ -1,0 +1,7 @@
+{:ffc-smoothing-period  200
+ :ffc-live-threshold    0
+ :ffc-offline-threshold 0
+ :fitness-measure       :rolling-profit-loss-fitness
+ :ffc-threshold-percent -0.04
+ :ffc-window-length     20
+  }
