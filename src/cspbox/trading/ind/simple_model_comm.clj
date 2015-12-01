@@ -1,7 +1,7 @@
 (ns cspbox.trading.ind.simple-model-comm
-  (:require [cspbox.store.buf.roll :refer [make-lookback-buffer]]
+  (:require [cspbox.runtime.store.buf.roll :refer [make-lookback-buffer]]
             [cspbox.trading.ind.base :refer [make-sma-ind]]
-            [cspbox.conv.utils.macro :refer [to-map]]))
+            [cspbox.runtime.sys.utils.macro :refer [to-map]]))
 
 (defn simple-model-comm
   ""

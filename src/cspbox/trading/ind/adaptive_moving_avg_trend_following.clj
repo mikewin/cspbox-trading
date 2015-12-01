@@ -1,8 +1,8 @@
 (ns cspbox.trading.ind.adaptive-moving-avg-trend-following
   (:require [cspbox.trading.ind.spec :refer [average-true-range]]
             [cspbox.trading.ind.base :refer [make-ama-ind]]
-            [cspbox.store.buf.roll :refer [make-lookback-buffer]]
-            [cspbox.conv.utils.macro :refer [to-map]]
+            [cspbox.runtime.store.buf.roll :refer [make-lookback-buffer]]
+            [cspbox.runtime.sys.utils.macro :refer [to-map]]
             [clojure.tools.logging  :as log]))
 
 

@@ -1,5 +1,5 @@
 (ns cspbox.trading.ind.roll-ind
-  (:require [cspbox.store.buf.roll :refer [make-lookback-buffer]]))
+  (:require [cspbox.runtime.store.buf.roll :refer [make-lookback-buffer]]))
 
 
 

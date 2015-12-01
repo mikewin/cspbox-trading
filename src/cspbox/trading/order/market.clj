@@ -1,7 +1,7 @@
 (ns cspbox.trading.order.market
   (:require [clj-time.core :as t]
             [clj-time.coerce :as c]
-            [cspbox.tools.date :as d]))
+            [cspbox.runtime.tools.date :as d]))
 
 (def market-open  "9:30")
 (def market-close "16:00") ;; todo use config for different market

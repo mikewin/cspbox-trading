@@ -1,7 +1,7 @@
 (ns cspbox.trading.ind.base
   (:require [cspbox.trading.ind.roll-ind :refer [make-roll-indicator make-lookback-indicator]]
-            [cspbox.store.buf.roll :refer [make-lookback-buffer]]
-            [cspbox.conv.utils.macro :refer [to-map]]))
+            [cspbox.runtime.store.buf.roll :refer [make-lookback-buffer]]
+            [cspbox.runtime.sys.utils.macro :refer [to-map]]))
 
 (defn p-max
   [price-type]

@@ -1,7 +1,7 @@
 (ns cspbox.trading.ind.market-direction-filter
   (:require [cspbox.trading.ind.spec :refer [moving-linear-regression channel]]
             [cspbox.trading.ind.base :refer [make-sma-ind]]
-            [cspbox.conv.utils.macro :refer [to-map]]))
+            [cspbox.runtime.sys.utils.macro :refer [to-map]]))
 
 (defn market-direction-filter
   [{:keys [period]}]

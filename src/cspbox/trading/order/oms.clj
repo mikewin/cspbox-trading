@@ -1,6 +1,6 @@
 (ns cspbox.trading.order.oms
   (:require [cspbox.trading.stats.base :refer [classify]]
-            [cspbox.store.buf.buffer :refer [make-buf remove-item]]
+            [cspbox.runtime.store.buf.buffer :refer [make-buf remove-item]]
             [cspbox.trading.order.market :refer [simple-slippage adjust-price]]))
 
 

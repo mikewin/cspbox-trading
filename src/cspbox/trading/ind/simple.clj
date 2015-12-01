@@ -1,6 +1,6 @@
 (ns cspbox.trading.ind.simple
   (:require [cspbox.trading.ind.base :refer [make-sma-ind]]
-            [cspbox.conv.utils.macro :refer [to-map]]))
+            [cspbox.runtime.sys.utils.macro :refer [to-map]]))
 
 (defn sma-ind
   "wrap sma indicator"

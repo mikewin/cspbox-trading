@@ -1,6 +1,6 @@
 (ns cspbox.trading.stats.partition
   (:require [cspbox.trading.stats.group :refer [compute-trade-group]]
-            [cspbox.conv.utils.macro :refer[to-map]]))
+            [cspbox.runtime.sys.utils.macro :refer[to-map]]))
 ;; todo
 ;;copy code from wzrdsappr (translate to clojure) , just for test
 

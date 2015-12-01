@@ -1,8 +1,8 @@
 (ns cspbox.trading.fit.ffc
-  (:require [cspbox.store.buf.roll :refer [make-lookback-buffer]]
+  (:require [cspbox.runtime.store.buf.roll :refer [make-lookback-buffer]]
             [cspbox.trading.ind.base :refer [avg make-ema-ind]]
             [cspbox.trading.stats.base :refer [sum-pl]]
-            [cspbox.tools.config :refer [select-read-conf]]))
+            [cspbox.runtime.tools.config :refer [select-read-conf]]))
 
 
 (defn rolling-trade-net-asset-value-fitness

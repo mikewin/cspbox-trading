@@ -11,7 +11,7 @@
 
 ## test data
 
-  + stock history data  : put in the path (csv format)
+  + stock history data  : put in the path (csv format) ,see local_data.edn
   + strategy : see example in test/
 
 ## check path and config

@@ -1,7 +1,7 @@
 (ns cspbox.trading.stats.group
   (:require [cspbox.trading.stats.base :refer [epsilon]]
-            [cspbox.tools.date :refer [timestamp-difference seconds-per-day]]
-            [cspbox.conv.utils.macro :refer[to-map]]))
+            [cspbox.runtime.tools.date :refer [timestamp-difference seconds-per-day]]
+            [cspbox.runtime.sys.utils.macro :refer[to-map]]))
 
 ;;copy code from wzrdsappr (translate to clojure) , just for test
  (comment

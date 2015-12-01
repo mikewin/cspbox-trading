@@ -1,6 +1,6 @@
 (ns cspbox.trading.ind.extend
   (:require [cspbox.trading.ind.roll-ind :refer [make-roll-indicator make-lookback-indicator]]
-            [cspbox.store.buf.roll :refer [make-lookback-buffer]]
+            [cspbox.runtime.store.buf.roll :refer [make-lookback-buffer]]
             [cspbox.trading.ind.base :refer [p-max p-min avg make-ema-ind]]))
 
 (defn bollinger-band

@@ -1,6 +1,6 @@
 (ns cspbox.trading.ind.envelope-moving-avg-trend-following
   (:require [cspbox.trading.ind.base :refer [make-ema-ind]]
-            [cspbox.conv.utils.macro :refer [to-map]]
+            [cspbox.runtime.sys.utils.macro :refer [to-map]]
             [clojure.tools.logging  :as log]))
 
 (defn envelope-moving-avg-trend-following

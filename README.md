@@ -12,7 +12,7 @@ LightTrade system will use it to build uberjar.
 or add this to your project.clj dependencies
 
 `
-[cspbox-trading "0.1.0"]
+[cspbox-trading "0.1.1"]
 `
 ## License
 

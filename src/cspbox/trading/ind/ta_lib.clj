@@ -1,7 +1,7 @@
-(ns cspbox.trading.ind.ta-lib
+#_(ns cspbox.trading.ind.ta-lib
   (:require [clj-ta-lib.core :as ta]))
 
-(defmacro wrap-talib
+#_(defmacro wrap-talib
   [ind & param]
   (let [sname  (name ind)
         fname  (symbol sname)]

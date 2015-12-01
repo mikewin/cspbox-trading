@@ -1,10 +1,10 @@
 (ns cspbox.trading.ind.range-projection-mean-reversion
-  (:require [cspbox.store.buf.roll :refer [make-lookback-buffer]]
+  (:require [cspbox.runtime.store.buf.roll :refer [make-lookback-buffer]]
             [cspbox.trading.ind.base :refer [make-sma-ind avg]]
             [cspbox.trading.order.market :refer [market-hours market-closed-p]]
             [cspbox.tools.date :refer [timestamp-day-of-week seconds-per-hour sec-of]]
             [clj-time.core :as t]
-            [cspbox.conv.utils.macro :refer [to-map]]
+            [cspbox.runtime.sys.utils.macro :refer [to-map]]
             [clojure.tools.logging  :as log]))
 
 ;;; In order for this trading strategy to work correctly, the event stream must be at a faster
