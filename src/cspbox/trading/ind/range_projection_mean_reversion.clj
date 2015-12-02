@@ -5,7 +5,7 @@
             [cspbox.tools.date :refer [timestamp-day-of-week seconds-per-hour sec-of]]
             [clj-time.core :as t]
             [cspbox.runtime.sys.utils.macro :refer [to-map]]
-            [clojure.tools.logging  :as log]))
+            [taoensso.timbre  :as log]))
 
 ;;; In order for this trading strategy to work correctly, the event stream must be at a faster
 ;;; frequency than the projection interval since the projected range is based on the opening value
@@ -41,7 +41,7 @@
                   SFS (* channel-center (inc (* prev-tr-ma 2/3)))]
                (tr-ma-buf tr-ma) (pivot-ma-history pivot-ma)
               (L-buf L) (S-buf S) (SFL-buf SFL) (SFS-buf SFS)
-              (log/info L S SFL SFS)))))
+              (log/trace L S SFL SFS)))))
       :realtime ;; use this in market time
       (fn [{:keys [date price]}]
         (when-let [L  (L-buf)]

@@ -2,7 +2,7 @@
   (:require [cspbox.store.buf.roll :refer [make-lookback-buffer]]
             [cspbox.trading.ind.spec :refer [donchian-channel]]
             [cspbox.conv.utils.macro :refer [to-map]]
-            [clojure.tools.logging  :as log]))
+            [taoensso.timbre  :as log]))
 
 
 
@@ -24,6 +24,6 @@
                 SFL           (:lower-band fast-channel)
                 PFL  (if (contains? #{:long :profit-from-long} state) (max (PFL-buf) L) (+ L (- L SFL)))
                 PFS  (if (contains? #{:short :profit-from-short} state) (min (PFS-buf) S) (+ S (- S SFS)))]
-            ;(log/info  p   S L " -- " SFL SFS " -- " PFS PFL" " state)
+            ;(log/debug  p   S L " -- " SFL SFS " -- " PFS PFL" " state)
             (PFL-buf PFL) (PFS-buf PFS)
             (to-map date p L S SFS SFL PFL PFS)))))))

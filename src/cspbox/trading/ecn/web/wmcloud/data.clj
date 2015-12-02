@@ -4,8 +4,7 @@
             [semantic-csv.core :as sc :refer [->float ->long ->int]]
             [cspbox.runtime.tools.config :refer [select-read-conf]]
             [clj-http.client :as client]
-            [cspbox.runtime.tools.date :refer [prev-days]]
-            [clojure.tools.logging :as log]))
+            [cspbox.runtime.tools.date :refer [prev-days]]))
 
 ;; helper function
 (defn send-request
@@ -31,7 +30,7 @@
         (if return-count
           (take return-count csv-data)
           csv-data)))))
-      ;(log/info "error?" res)
+
 
 (defn proc-data
   "get and save data"

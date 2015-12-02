@@ -7,7 +7,7 @@
             [cspbox.runtime.tools.write :refer [delete-file]]
             [cspbox.trading.order.record :refer [record-order]]
             [cspbox.trading.fit.ffc :refer [make-compute-fitness-feedback]]
-            [clojure.tools.logging  :as log]))
+            [taoensso.timbre  :as log]))
 
 
 (defn make-post-proc
@@ -36,7 +36,7 @@
               navs         (nav-buf (+ nav pl))
               trade-groups (trade-group-buf)
               ffc-state    (if ffc (calc-ffc navs revalprices pls trade-groups) :online)] ;gross-profit gross-loss
-          ;(log/info date p position id) ;; for debug
+          ;(log/trace date p position id) ;; for debug
           (when (= ffc-state :online)
             (let [trade-quantity (- position prev-position)]
               (when (not= trade-quantity 0)

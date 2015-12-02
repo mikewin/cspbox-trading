@@ -1,7 +1,7 @@
 (ns cspbox.trading.ind.swing-breakout
   (:require [cspbox.runtime.store.buf.roll :refer [make-lookback-buffer]]
             [cspbox.runtime.sys.utils.macro :refer [to-map]]
-            [clojure.tools.logging  :as log]))
+            [taoensso.timbre  :as log]))
 
 
 (defn swing-breakout
@@ -59,6 +59,6 @@
                       S (S-buf)
                       PFL (PFL-buf)
                       PFS (PFS-buf)]
-                  (log/info p S L PFS PFL state)
+                  (log/debug p S L PFS PFL state)
                   (to-map date p L S PFL PFS))))))))))
 

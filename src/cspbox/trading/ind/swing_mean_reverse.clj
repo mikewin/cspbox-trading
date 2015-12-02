@@ -1,7 +1,7 @@
 (ns cspbox.trading.ind.swing-mean-reverse
   (:require [cspbox.store.buf.roll :refer [make-lookback-buffer]]
             [cspbox.conv.utils.macro :refer [to-map]]
-            [clojure.tools.logging  :as log]))
+            [taoensso.timbre  :as log]))
 
 
 (defn  swing-mean-reverse
@@ -60,5 +60,5 @@
                       S   (S-buf)
                       SFL (SFL-buf)
                       SFS (SFS-buf)]
-                  (log/info p S L SFS SFL )
+                  (log/debug p S L SFS SFL )
                   (to-map date p L S SFL SFS ))))))))))

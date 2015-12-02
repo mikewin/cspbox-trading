@@ -3,7 +3,7 @@
             [cspbox.runtime.store.buf.roll :refer [make-lookback-buffer]]
             [cspbox.trading.order.market :refer [market-closed-p]]
             [cspbox.runtime.sys.utils.macro :refer [to-map]]
-            [clojure.tools.logging  :as log]))
+            [taoensso.timbre  :as log]))
 
 
 (defn opening-range-breakout

@@ -3,7 +3,7 @@
             [cspbox.trading.ind.base :refer [make-ama-ind]]
             [cspbox.runtime.store.buf.roll :refer [make-lookback-buffer]]
             [cspbox.runtime.sys.utils.macro :refer [to-map]]
-            [clojure.tools.logging  :as log]))
+            [taoensso.timbre  :as log]))
 
 
 (defn adaptive-moving-avg-trend-following
@@ -38,7 +38,7 @@
             PFL (if-not (= state :long) (+ upper-band  (* 1.2 (* atr-value width-factor))) PFL)
             PFS (if-not (= state :short) (- lower-band  (* 1.2 (* atr-value width-factor))) PFS)]
         (SFL-buf SFL) (SFS-buf SFS) (PFL-buf PFL) (PFS-buf PFS) (p-buf price)
-        (log/info p upper-band lower-band PFL PFS) ;; for debug
+        (log/debug p upper-band lower-band PFL PFS) ;; for debug
         (to-map date p upper-band lower-band SFL SFS PFL PFS)))))
 
 
