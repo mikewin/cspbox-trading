@@ -1,0 +1,83 @@
+ ;; this is a example sys dsl, descript a swing breakout strategy
+ ;; before build it, please make sure boot have been installed
+ ;; build will take about 10 minute or longer, more detail in http://autorun.coding.io/
+
+          [:ns swbr-ecn]
+
+          [:import swing-breakout]
+
+          [:def params  {:event-count 21 :expected-width 1.5 :price-extension 2.0}]
+          [:def swbr (swing-breakout params)]
+
+          [:def long-size 1]
+          [:def short-size -1]
+
+          ;; make sure data in the path ,see config file
+          [:def data-in {:symbol "600480", :count 400
+                         :field [:date :close] :conv {:close :price}}]
+          [:def data-source (data-source-hist-day data-in)]
+          [:def post-proc   (make-post-proc {:record true})]
+          [:def proc-order  (:proc-postion post-proc)]
+
+          ;; read data from data-source
+          [:box :get-price
+           :proc data-source
+           :timer 200
+           :out  :price
+           :buf {:run true}]
+
+          [:agent :gen-price
+           :box  :get-price]
+
+          ;; indicator
+          [:agent :swbr-indicator
+           :proc  swbr
+           :in  [:price :state]
+           :out :swbr
+           :buf {:state :init}]
+
+          ;; strategy
+          [:state :init
+           :to [:long :profit-from-long :short :profit-from-short]
+           :pos 0]
+
+          [:state :long
+           :to [:profit-from-long :short :profit-from-short]
+           :tri (p >= L & p < PFL)
+           :pos long-size]
+
+          [:state :profit-from-long
+           :to [:short :profit-from-short]
+           :tri (p >= PFL)
+           :pos 0]
+
+          [:state :short
+           (p < PFS) -> :profit-from-short
+           :to [:long :profit-from-long]
+           :tri (p <= S & p > PFS)
+           :pos short-size]
+
+          [:state :profit-from-short
+           :to [:long :profit-from-long]
+           :tri (p <= PFS)
+           :pos 0]
+
+          [:stra :swing-breakout
+           :state [:init :long :short :profit-from-long :profit-from-short]
+           :feedback :swbr-indicator
+           :in :swbr
+           :out :position]
+
+          [:agent :swbr-strategy
+           :stra :swing-breakout]
+
+          ;; order
+          [:box  :dummy-oms
+           :proc  proc-order
+           :in :position]
+
+          [:system :swbr-sys
+           :box [:dummy-oms]
+           :agent [:swbr-strategy :swbr-indicator :gen-price]]
+
+          [:stop  (mail :gen-price  :set :run false)]

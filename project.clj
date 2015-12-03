@@ -1,4 +1,4 @@
-(defproject cspbox-trading "0.1.2"
+(defproject cspbox-trading "0.1.3"
   :description "Part of cspbox trading system for build standalone daemon"
   :url "https://github.com/mikewin/cspbox-trading"
   :license {:name "Eclipse Public License"
@@ -11,4 +11,5 @@
                  [clj-http "2.0.0"]
                  [org.clojure/data.csv "0.1.3"]
                  [semantic-csv "0.1.0"]
-                 [cspbox-runtime "0.1.1"]])
+                 [org.clojure/core.match "0.3.0-alpha4"]
+                 [cspbox-runtime "0.1.2"]])

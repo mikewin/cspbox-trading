@@ -35,7 +35,7 @@
   (let [conf  (local-data-config)
         file (symobl-to-filename conf symbol-id)]
     (if parse
-      (csv/read-parse-cvs file number)
+      (csv/read-parse-cvs file {:number number})
       (csv/read-local-csv file))))
 
 
@@ -43,9 +43,10 @@
   "read local history minute data cvs file"
   [symbol-id numbers]
   (let [conf (local-data-config)
-        file (symobl-to-filename conf symbol-id :min)]
-    (->> (csv/read-parse-cvs file numbers {:dataDate :date :openPrice :open, :closePrice :close,
-                                      :highPrice :high, :lowPrice :low, :totalVolume :volume})
+        file (symobl-to-filename conf symbol-id :min)
+        conv-map {:dataDate :date :openPrice :open, :closePrice :close,
+                  :highPrice :high, :lowPrice :low, :totalVolume :volume}]
+    (->> (csv/read-parse-cvs file {:number numbers :conv-map conv-map})
          (map #(combine-time %)))))
 
 

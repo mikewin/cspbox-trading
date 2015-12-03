@@ -36,14 +36,14 @@
               navs         (nav-buf (+ nav pl))
               trade-groups (trade-group-buf)
               ffc-state    (if ffc (calc-ffc navs revalprices pls trade-groups) :online)] ;gross-profit gross-loss
-          ;(log/trace date p position id) ;; for debug
-          (when (= ffc-state :online)
-            (let [trade-quantity (- position prev-position)]
-              (when (not= trade-quantity 0)
-                (let [order {:id id, :opc p, :oqt trade-quantity, :timestamp timestamp
-                             :otp :stp, :oid :pos-chg}]
-                  (when record (record-order order {:file record-file}))
-                  (send-order order)))))))
+          (when (and (= ffc-state :online) (not= position prev-position))
+            (let [trade-quantity (- position prev-position)
+                  order {:id id, :opc p, :oqt trade-quantity, :timestamp timestamp
+                         :otp :stp, :oid :pos-chg}]
+              ;(log/debug date p trade-quantity id)
+              (when record
+                (record-order order {:file record-file}))
+              (send-order order)))))
      :recv-trade
        (fn [trade]
           (trade-group-buf trade))}))
