@@ -2,6 +2,8 @@
  ;; before build it, please make sure boot have been installed
  ;; build will take about 10 minute or longer, more detail in http://autorun.coding.io/
 
+ ;; this sys define the parameters, then these parameter could be config
+
           [:ns swbr-ecn]
 
           [:import swing-breakout]
